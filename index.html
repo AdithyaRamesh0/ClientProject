@@ -1,102 +1,14 @@
-<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/ClientProject/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mulch-route-planner</title>
-    <script type="module" crossorigin src="/ClientProject/assets/index-BZZ7yleD.js"></script>
-    <link rel="stylesheet" crossorigin href="/ClientProject/assets/index-Ckr9aasG.css">
+    <script type="module" crossorigin src="/assets/index-BZZ7yleD.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Ckr9aasG.css">
   </head>
   <body>
     <div id="root"></div>
   </body>
 </html>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Mulch Route Planner</title>
-</head>
-<body>
-
-<h1>Mulch Route Planner</h1>
-
-<label>Truck Capacity:</label>
-<input id="capacity" type="number">
-
-<h2>Orders</h2>
-
-<textarea
-  id="orders"
-  rows="10"
-  cols="50"
-  placeholder="Address, Bags&#10;123 Main St, 10">
-</textarea>
-
-<br><br>
-
-<button onclick="generateTrips()">
-Generate Routes
-</button>
-
-<div id="results"></div>
-
-<script>
-function generateTrips() {
-
-  let capacity =
-      parseInt(document.getElementById("capacity").value);
-
-  let data =
-      document.getElementById("orders").value;
-
-  let lines = data.split("\n");
-
-  let currentLoad = 0;
-  let tripNumber = 1;
-
-  let output =
-      "<h2>Generated Trips</h2>";
-
-  output += "<h3>Trip " + tripNumber + "</h3>";
-
-  for(let line of lines){
-
-      let parts = line.split(",");
-
-      if(parts.length < 2) continue;
-
-      let address = parts[0].trim();
-      let bags = parseInt(parts[1]);
-
-      if(currentLoad + bags > capacity){
-
-          tripNumber++;
-
-          output +=
-             "<h3>Trip " +
-             tripNumber +
-             "</h3>";
-
-          currentLoad = 0;
-      }
-
-      currentLoad += bags;
-
-      output +=
-          address +
-          " (" +
-          bags +
-          " bags)<br>";
-  }
-
-  document.getElementById("results").innerHTML =
-      output;
-}
-</script>
-
-</body>
-</html>
->>>>>>> 08711437dbfc9950c40998212cddec673d198287
